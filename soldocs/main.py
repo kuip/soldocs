@@ -51,6 +51,7 @@ def main(**kwargs):
             constant_methods = [x for x in abi if x['type'] == 'function' and x['constant'] == True]
             state_change_methods = [x for x in abi if x['type'] == 'function' and x['constant'] == False]
             constructor = [x for x in abi if x['type'] == 'constructor']
+            events = [x for x in abi if x['type'] == 'event']
 
             content += '# %s\n\n' % (contract_name)
 
@@ -65,6 +66,10 @@ def main(**kwargs):
             if len(constant_methods):
                 content += '## Constant Functions\n\n'
                 content += add_methods(constant_methods, devdoc, userdoc)
+
+            if len(events):
+                content += '## Events\n\n'
+                content += add_methods(events, devdoc, userdoc)
 
             content += '\n\n'
 
@@ -106,14 +111,14 @@ def add_method(method, devdoc=None, userdoc=None):
         content += '%s\n' % (devdoc['details'])
 
     # Method input parameters
-    if len(method['inputs']):
+    if method['inputs']:
         content += '\n#### Input parameters\n'
         content += params_header(input_titles)
         for param in method['inputs']:
             content += add_param(param, input_titles, devdoc, userdoc)
         content += '\n'
 
-    if len(method['outputs']):
+    if method.get('outputs'):
         content += '\n#### Output\n'
         if devdoc and 'return' in devdoc.keys():
             content += '\nFunction returns: %s\n' % (devdoc['return'])
