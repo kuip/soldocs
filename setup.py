@@ -7,7 +7,7 @@ setup(name='soldocs',
         author='Loredana Cirstea',
         author_email='loredana.cirstea@gmail.com',
         url='https://github.com/kuip/soldocs',
-        version='0.1.0',
+        version='0.1.1',
         license='MIT',
         classifiers=[
             'Development Status :: 3 - Alpha',
