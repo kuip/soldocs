@@ -8,5 +8,5 @@ Generates Markdown documentation from [populus](https://github.com/ethereum/popu
 virtualenv -p python3 env
 . env/bin/activate
 pip install soldocs
-soldocs --input examples/contracts.json --output examples/docs.md
+soldocs --input examples/build/contracts.json --output examples/docs.md
 ```

@@ -2,6 +2,14 @@
 
 ## Non-Constant Functions
 
+### emitGreeting
+
+#### Input parameters
+
+|name|type|indexed|description|
+|---|---|---|---|
+|receiver|address|||
+
 ### setGreeting
 Function for setting the greeting.
 
@@ -31,6 +39,18 @@ Function returns: Return the greeting.
 |name|type|
 |---|---|
 ||string||
+
+## Events
+
+### GreetSent
+
+#### Input parameters
+
+|name|type|indexed|description|
+|---|---|---|---|
+|sender|address|True||
+|message|string|||
+|receiver|address|True||
 
 
 
